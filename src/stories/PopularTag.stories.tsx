@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import PopularTag from './PopularTag';
+import { PopularTag } from './PopularTag';
 
 const meta = {
   component: PopularTag,

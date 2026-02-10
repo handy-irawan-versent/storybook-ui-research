@@ -1,9 +1,9 @@
 
-type CloseMyAccountDisclaimerProps = {
+export interface CloseMyAccountDisclaimerProps  {
   isSouthAustralia: boolean;
 };
 
-const CloseMyAccountDisclaimer = ({ isSouthAustralia }: CloseMyAccountDisclaimerProps) => {
+ export const CloseMyAccountDisclaimer = ({ isSouthAustralia }: CloseMyAccountDisclaimerProps) => {
   const selfExcludeName = isSouthAustralia ? 'Bar yourself' : 'self-exclude';
 
   return (
@@ -16,5 +16,3 @@ const CloseMyAccountDisclaimer = ({ isSouthAustralia }: CloseMyAccountDisclaimer
     </small>
   );
 };
-
-export default CloseMyAccountDisclaimer;

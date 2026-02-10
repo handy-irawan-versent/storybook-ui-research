@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import CloseMyAccountDisclaimer from './CloseMyAccountDisclaimer';
+import { CloseMyAccountDisclaimer } from './CloseMyAccountDisclaimer';
 
 const meta = {
   component: CloseMyAccountDisclaimer,
