@@ -36,13 +36,15 @@ jobs:
       - name: Build Storybook
         run: npm run build-storybook
 
+      - name: Publish package
+        if: github.event_name != 'pull_request'
+        run: npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
+
       - uses: chromaui/action@latest
         if: github.event_name != 'pull_request'
         name: Publish to Chromatic
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Publish package
-        if: github.event_name != 'pull_request'
-        run: npm publish --access public 
