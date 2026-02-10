@@ -1,6 +1,6 @@
 {
   "name": "storybook-ui-research-draft",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "repository": {
@@ -26,8 +26,8 @@
     "chromatic": "npx chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }}"
   },
   "peerDependencies": {
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react": ">=17 <21",
+    "react-dom": ">=17 <21"
   },
   "devDependencies": {
     "react": "^19.2.0",
