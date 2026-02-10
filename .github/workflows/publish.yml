@@ -38,7 +38,7 @@ jobs:
 
       - name: Publish package
         if: github.event_name != 'pull_request'
-        run: npm publish --access public --provenance
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
 
