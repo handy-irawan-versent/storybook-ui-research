@@ -45,4 +45,4 @@ jobs:
 
       - name: Publish package
         if: github.event_name != 'pull_request'
-        run: npm publish --access public --provenance
+        run: npm publish --access public 
