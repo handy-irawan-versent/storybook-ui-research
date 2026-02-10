@@ -1,14 +1,14 @@
 {
-  "name": "@handy-irawan-versent/thelott-ui-research",
+  "name": "storybook-ui-research",
   "version": "0.1.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/handy-irawan-versent/thelott-ui-research.git"
+    "url": "git+https://github.com/handy-irawan-versent/storybook-ui-research.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://registry.npmjs.org/"
   },
   "type": "module",
   "scripts": {
