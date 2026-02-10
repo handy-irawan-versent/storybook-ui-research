@@ -35,17 +35,23 @@ jobs:
       - name: Build Storybook
         run: npm run build-storybook
 
-      - name: Bump version
+      - name: Check published version
+        id: check_version
         run: |
-          npm version patch --no-git-tag-version
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
-          git add package.json package-lock.json
-          git commit -m "chore: bump version for publish"
-          git push
+          PKG_NAME=$(jq -r .name package.json)
+          PKG_VERSION=$(jq -r .version package.json)
+          NPM_VERSION=$(npm view "$PKG_NAME" version || echo "none")
+          echo "Local version: $PKG_VERSION"
+          echo "Published version: $NPM_VERSION"
+          if [ "$PKG_VERSION" = "$NPM_VERSION" ]; then
+            echo "::warning::Version $PKG_VERSION is already published. Skipping publish."
+            echo "skip_publish=true" >> $GITHUB_ENV
+          else
+            echo "skip_publish=false" >> $GITHUB_ENV
+          fi
 
       - name: Publish package
-        if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request' && env.skip_publish == 'false'
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
