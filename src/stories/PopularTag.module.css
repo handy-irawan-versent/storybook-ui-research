@@ -1,7 +1,7 @@
 
 .popularTagContainer {
   border-radius: 5px;
-  color: lottColour(white);
+  color: white;
   font-size: 13px;
   font-weight: 700;
   padding: 0 4px;
